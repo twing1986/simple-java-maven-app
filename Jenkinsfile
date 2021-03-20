@@ -9,8 +9,7 @@ pipeline {
         stage('Build') {
             steps {
 				echo 'Hello!'
-				bat 'echo "Tomcio"'
-                sh('mvn -B -DskipTests clean package')
+                mvn -B -DskipTests clean package
             }
         }
     }
