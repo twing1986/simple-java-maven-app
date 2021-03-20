@@ -8,7 +8,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-				sh('echo Hello!')
+				echo 'Hello!'
+				bat 'echo "Tomcio"'
                 sh('mvn -B -DskipTests clean package')
             }
         }
