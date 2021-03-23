@@ -6,7 +6,7 @@ pipeline {
 		}
 	}
 	environment {
-		PATH = "/usr/local/bin:${env.PATH}"
+		PATH="/sbin:/usr/sbin:/usr/bin:/usr/local/bin:/bin"
 	}		
     stages {
         stage('Build') {
