@@ -15,8 +15,8 @@ pipeline {
         stage('Build') {
             steps {
 				echo 'Hello!'
-				sh 'mvn --version'
-                sh 'mvn -B -DskipTests clean package'
+				mvn --version
+                mvn -B -DskipTests clean package
             }
         }
     }
