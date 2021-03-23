@@ -3,10 +3,9 @@ pipeline {
         docker {
             image 'maven:3-alpine'
             args '-v /root/.m2:/root/.m2'
-        }
-		environment {
-			PATH = "/usr/local/bin:${env.PATH}"
-		}		
+			environment {
+				PATH = "/usr/local/bin:${env.PATH}"
+			}		
     }
     stages {
         stage('Build') {
