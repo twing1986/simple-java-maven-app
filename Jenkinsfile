@@ -5,6 +5,9 @@ pipeline {
             args '-v /root/.m2:/root/.m2'
 		}
 	}
+	tools { 
+        maven 'Maven 3.6.3' 
+    }
 	environment {
 		PATH="/sbin:/usr/sbin:/usr/bin:/usr/local/bin:/bin"
 	}		
