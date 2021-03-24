@@ -1,15 +1,23 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3-alpine' 
-            args '-v $HOME/.m2:/var/maven/.m2:z -e MAVEN_CONFIG=/var/maven/.m2 -e MAVEN_OPTS="-Duser.home=/var/maven"' 
-        }
+    agent any
+    tools {
+        maven 'Maven 3.3.9'
+        jdk 'jdk8'
     }
     stages {
-        stage('Build') { 
+        stage ('Initialize') {
             steps {
-                sh 'mvn -B -DskipTests clean package' 
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                '''
             }
         }
-    }
+
+        stage ('Build') {
+            steps {
+                sh 'mvn -B -DskipTests clean package'
+            }
+		}
+	}
 }
